@@ -1,0 +1,1 @@
+﻿<%  Response.Redirect("RealApplication01TestPage.aspx", True)%> 

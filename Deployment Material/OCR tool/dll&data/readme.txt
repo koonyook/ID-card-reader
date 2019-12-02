@@ -1,0 +1,1 @@
+Parameter แรกของ .Init ต้องเป็น path ไปถึง /tessdata ให้ได้

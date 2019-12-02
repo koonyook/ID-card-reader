@@ -1,0 +1,40 @@
+﻿<controls:ChildWindow xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="RealApplication01.Views.AddBlackEventWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="296" Height="368" 
+           Title="AddBlackEventWindow" HasCloseButton="False">
+    <Grid x:Name="LayoutRoot" Margin="2">
+		<toolkit:BusyIndicator IsBusy="{Binding isBusy}"  >
+			<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+		<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+		<TextBlock HorizontalAlignment="Left" Margin="12,8,0,0" Name="textBlock1" Text="รหัสบัตร" VerticalAlignment="Top" Style="{StaticResource ThaiTextBlock}" />
+		<TextBox Text="{Binding cardID, Mode=TwoWay, ValidatesOnExceptions=True}" Height="23" HorizontalAlignment="Left" Margin="61,8,0,0" Name="cardIDTextBox" VerticalAlignment="Top" Width="204" />
+				<TextBlock Style="{StaticResource ThaiTextBlock}" HorizontalAlignment="Left" Margin="12,40,0,0" Name="textBlock2" Text="ชนิดบัตร" VerticalAlignment="Top" />
+		<ComboBox ItemsSource="{Binding identifierTypeList}" SelectedItem="{Binding cardIdentifierType,Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="61,41,0,0" Name="cardTypeComboBox" VerticalAlignment="Top" Width="204" Loaded="cardTypeComboBox_Loaded">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+		<CheckBox IsChecked="{Binding haveCopy, Mode=TwoWay}" HorizontalAlignment="Left" Margin="61,73,0,0" Name="haveCopyCheckBox" VerticalAlignment="Top" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="92,125,0,0" Name="blackTypeTextBox" Text="{Binding behaviorType, Mode=TwoWay,ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="173" />
+				<TextBox Height="81" HorizontalAlignment="Left" Margin="12,183,0,0" Name="detailTextBox" Text="{Binding detail, Mode=TwoWay}" VerticalAlignment="Top" Width="253" TextWrapping="Wrap" />
+				<controls:DatePicker SelectedDate="{Binding dateOfEvent, Mode=TwoWay, ValidatesOnExceptions=True}" Height="23" HorizontalAlignment="Left" Margin="92,95,0,0" Name="datePicker1" VerticalAlignment="Top" Width="171" Loaded="datePicker1_Loaded" />
+				<TextBox Height="22" Text="{Binding debug, Mode=TwoWay}" Margin="12,270,9,0" VerticalAlignment="Top" Name="debug" IsEnabled="False" />
+				<TextBlock HorizontalAlignment="Left" Margin="12,67,0,0" Name="textBlock5" Style="{StaticResource ThaiTextBlock}" Text="มีสำเนา" VerticalAlignment="Top" />
+				<TextBlock HorizontalAlignment="Left" Margin="12,95,0,0" Name="textBlock6" Style="{StaticResource ThaiTextBlock}" Text="วันที่เกิดเหตุ" VerticalAlignment="Top" />
+				<TextBlock HorizontalAlignment="Left" Margin="12,121,0,0" Name="textBlock7" Style="{StaticResource ThaiTextBlock}" Text="ชนิดเหตุการณ์" VerticalAlignment="Top" />
+				<TextBlock HorizontalAlignment="Left" Margin="12,150,0,0" Name="textBlock3" Style="{StaticResource ThaiTextBlock}" Text="รายละเอียดเหตุการณ์" VerticalAlignment="Top" />
+			</Grid>
+			
+		</toolkit:BusyIndicator>
+	</Grid>
+</controls:ChildWindow>

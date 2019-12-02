@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OutsiderDB1ModelStoreContainer" CdmEntityContainer="OutsiderDB1Entities">
+    <EntitySetMapping Name="BlackEvents">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.BlackEvent">
+        <MappingFragment StoreEntitySet="BlackEvent">
+          <ScalarProperty Name="BlackEventID" ColumnName="BlackEventID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comings">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Coming">
+        <MappingFragment StoreEntitySet="Coming">
+          <ScalarProperty Name="ComingID" ColumnName="ComingID" />
+          <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="PlateNo" ColumnName="PlateNo" />
+          <ScalarProperty Name="IsDeliver" ColumnName="IsDeliver" />
+          <ScalarProperty Name="IsKickedOut" ColumnName="IsKickedOut" />
+          <ScalarProperty Name="Inspector" ColumnName="Inspector" />
+          <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+          <ScalarProperty Name="TemporaryCardID" ColumnName="TemporaryCardID" />
+          <ScalarProperty Name="ContactEMPID" ColumnName="ContactEMPID" />
+          <ScalarProperty Name="ContactSectionID" ColumnName="ContactSectionID" />
+          <ScalarProperty Name="ContactElse" ColumnName="ContactElse" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Identifiers">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Identifier">
+        <MappingFragment StoreEntitySet="Identifier">
+          <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+          <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+          <ScalarProperty Name="HaveCopy" ColumnName="HaveCopy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentifierImages">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.IdentifierImage">
+        <MappingFragment StoreEntitySet="IdentifierImage">
+          <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+          <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="SnapDateTime" ColumnName="SnapDateTime" />
+          <ScalarProperty Name="IsCropped" ColumnName="IsCropped" />
+          <ScalarProperty Name="SpecificType" ColumnName="SpecificType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentifierTypes">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.IdentifierType">
+        <MappingFragment StoreEntitySet="IdentifierType">
+          <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IDLength" ColumnName="IDLength" />
+          <ScalarProperty Name="isFixedLength" ColumnName="isFixedLength" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outsiders">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Outsider">
+        <MappingFragment StoreEntitySet="Outsider">
+          <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outsider_Group">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Outsider_Group">
+        <MappingFragment StoreEntitySet="Outsider_Group">
+          <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="havePhoto" ColumnName="havePhoto" />
+          <ScalarProperty Name="isPassed" ColumnName="isPassed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkAreas">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.WorkArea">
+        <MappingFragment StoreEntitySet="WorkArea">
+          <ScalarProperty Name="WorkAreaID" ColumnName="WorkAreaID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTypes">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.WorkType">
+        <MappingFragment StoreEntitySet="WorkType">
+          <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_BlackIdentifierList">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.v_BlackIdentifierList">
+        <MappingFragment StoreEntitySet="v_BlackIdentifierList">
+          <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+          <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_BlackInnerContractor">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.v_BlackInnerContractor">
+        <MappingFragment StoreEntitySet="v_BlackInnerContractor">
+          <ScalarProperty Name="NewID" ColumnName="NewID" />
+          <ScalarProperty Name="EMPName" ColumnName="EMPName" />
+          <ScalarProperty Name="EMPSName" ColumnName="EMPSName" />
+          <ScalarProperty Name="FirstSup" ColumnName="FirstSup" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="CitID" ColumnName="CitID" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="CitAdd" ColumnName="CitAdd" />
+          <ScalarProperty Name="EMPNameTh" ColumnName="EMPNameTh" />
+          <ScalarProperty Name="EMPSNameTh" ColumnName="EMPSNameTh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Employee">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.v_Employee">
+        <MappingFragment StoreEntitySet="v_Employee">
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="EMPName" ColumnName="EMPName" />
+          <ScalarProperty Name="EMPSName" ColumnName="EMPSName" />
+          <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+          <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+          <ScalarProperty Name="FuncAbbrev" ColumnName="FuncAbbrev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Section">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.v_Section">
+        <MappingFragment StoreEntitySet="v_Section">
+          <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+          <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+          <ScalarProperty Name="FuncAbbrev" ColumnName="FuncAbbrev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_GroupForSelect">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.v_GroupForSelect">
+        <MappingFragment StoreEntitySet="v_GroupForSelect">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="PassCount" ColumnName="PassCount" />
+          <ScalarProperty Name="NotPassCount" ColumnName="NotPassCount" />
+          <ScalarProperty Name="AgentSName" ColumnName="AgentSName" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="OutsiderDB1Model.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="EngineerEMPID" ColumnName="EngineerEMPID" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="EmergencyCallNo" ColumnName="EmergencyCallNo" />
+          <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
+          <ScalarProperty Name="AgentTelephoneNo" ColumnName="AgentTelephoneNo" />
+          <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+          <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+          <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

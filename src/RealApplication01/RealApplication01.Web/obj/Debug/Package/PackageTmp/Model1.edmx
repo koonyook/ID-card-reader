@@ -1,0 +1,1049 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OutsiderDB1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="OutsiderDB1ModelStoreContainer">
+          <EntitySet Name="BlackEvent" EntityType="OutsiderDB1Model.Store.BlackEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Coming" EntityType="OutsiderDB1Model.Store.Coming" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="OutsiderDB1Model.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Group" EntityType="OutsiderDB1Model.Store.Group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Identifier" EntityType="OutsiderDB1Model.Store.Identifier" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IdentifierImage" EntityType="OutsiderDB1Model.Store.IdentifierImage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IdentifierType" EntityType="OutsiderDB1Model.Store.IdentifierType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Outsider" EntityType="OutsiderDB1Model.Store.Outsider" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Outsider_Group" EntityType="OutsiderDB1Model.Store.Outsider_Group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WorkArea" EntityType="OutsiderDB1Model.Store.WorkArea" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WorkType" EntityType="OutsiderDB1Model.Store.WorkType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="v_BlackIdentifierList" EntityType="OutsiderDB1Model.Store.v_BlackIdentifierList" store:Type="Views" store:Schema="dbo" store:Name="v_BlackIdentifierList">
+            <DefiningQuery>SELECT 
+      [v_BlackIdentifierList].[IdentifierID] AS [IdentifierID], 
+      [v_BlackIdentifierList].[IdentifierTypeID] AS [IdentifierTypeID]
+      FROM [dbo].[v_BlackIdentifierList] AS [v_BlackIdentifierList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_BlackInnerContractor" EntityType="OutsiderDB1Model.Store.v_BlackInnerContractor" store:Type="Views" store:Schema="dbo" store:Name="v_BlackInnerContractor">
+            <DefiningQuery>SELECT 
+      [v_BlackInnerContractor].[NewID] AS [NewID], 
+      [v_BlackInnerContractor].[EMPName] AS [EMPName], 
+      [v_BlackInnerContractor].[EMPSName] AS [EMPSName], 
+      [v_BlackInnerContractor].[FirstSup] AS [FirstSup], 
+      [v_BlackInnerContractor].[Company] AS [Company], 
+      [v_BlackInnerContractor].[Gender] AS [Gender], 
+      [v_BlackInnerContractor].[DateofBirth] AS [DateofBirth], 
+      [v_BlackInnerContractor].[CitID] AS [CitID], 
+      [v_BlackInnerContractor].[Telephone] AS [Telephone], 
+      [v_BlackInnerContractor].[CitAdd] AS [CitAdd], 
+      [v_BlackInnerContractor].[EMPNameTh] AS [EMPNameTh], 
+      [v_BlackInnerContractor].[EMPSNameTh] AS [EMPSNameTh]
+      FROM [dbo].[v_BlackInnerContractor] AS [v_BlackInnerContractor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Employee" EntityType="OutsiderDB1Model.Store.v_Employee" store:Type="Views" store:Schema="dbo" store:Name="v_Employee">
+            <DefiningQuery>SELECT 
+      [v_Employee].[EMPID] AS [EMPID], 
+      [v_Employee].[EMPName] AS [EMPName], 
+      [v_Employee].[EMPSName] AS [EMPSName], 
+      [v_Employee].[FuncID] AS [FuncID], 
+      [v_Employee].[FuncName] AS [FuncName], 
+      [v_Employee].[FuncAbbrev] AS [FuncAbbrev]
+      FROM [dbo].[v_Employee] AS [v_Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_GroupForSelect" EntityType="OutsiderDB1Model.Store.v_GroupForSelect" store:Type="Views" store:Schema="dbo" store:Name="v_GroupForSelect">
+            <DefiningQuery>SELECT 
+      [v_GroupForSelect].[GroupID] AS [GroupID], 
+      [v_GroupForSelect].[TimeIn] AS [TimeIn], 
+      [v_GroupForSelect].[CompanyName] AS [CompanyName], 
+      [v_GroupForSelect].[AgentName] AS [AgentName], 
+      [v_GroupForSelect].[AgentSName] AS [AgentSName], 
+      [v_GroupForSelect].[NotPassCount] AS [NotPassCount], 
+      [v_GroupForSelect].[PassCount] AS [PassCount], 
+      [v_GroupForSelect].[Total] AS [Total]
+      FROM [dbo].[v_GroupForSelect] AS [v_GroupForSelect]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Section" EntityType="OutsiderDB1Model.Store.v_Section" store:Type="Views" store:Schema="dbo" store:Name="v_Section">
+            <DefiningQuery>SELECT 
+      [v_Section].[FuncID] AS [FuncID], 
+      [v_Section].[FuncName] AS [FuncName], 
+      [v_Section].[FuncAbbrev] AS [FuncAbbrev]
+      FROM [dbo].[v_Section] AS [v_Section]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BlackEvent_Outsider" Association="OutsiderDB1Model.Store.FK_BlackEvent_Outsider">
+            <End Role="Outsider" EntitySet="Outsider" />
+            <End Role="BlackEvent" EntitySet="BlackEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coming_Company" Association="OutsiderDB1Model.Store.FK_Coming_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Coming" EntitySet="Coming" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coming_Outsider" Association="OutsiderDB1Model.Store.FK_Coming_Outsider">
+            <End Role="Outsider" EntitySet="Outsider" />
+            <End Role="Coming" EntitySet="Coming" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Agent" Association="OutsiderDB1Model.Store.FK_Group_Agent">
+            <End Role="Outsider" EntitySet="Outsider" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Company" Association="OutsiderDB1Model.Store.FK_Group_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifier_IdentifierTypeID" Association="OutsiderDB1Model.Store.FK_Identifier_IdentifierTypeID">
+            <End Role="IdentifierType" EntitySet="IdentifierType" />
+            <End Role="Identifier" EntitySet="Identifier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifier_Outsider" Association="OutsiderDB1Model.Store.FK_Identifier_Outsider">
+            <End Role="Outsider" EntitySet="Outsider" />
+            <End Role="Identifier" EntitySet="Identifier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdentifierImage_Identifier" Association="OutsiderDB1Model.Store.FK_IdentifierImage_Identifier">
+            <End Role="Identifier" EntitySet="Identifier" />
+            <End Role="IdentifierImage" EntitySet="IdentifierImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Outsider_Group_Group" Association="OutsiderDB1Model.Store.FK_Outsider_Group_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Outsider_Group_Outsider" Association="OutsiderDB1Model.Store.FK_Outsider_Group_Outsider">
+            <End Role="Outsider" EntitySet="Outsider" />
+            <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BlackEvent">
+          <Key>
+            <PropertyRef Name="BlackEventID" />
+          </Key>
+          <Property Name="BlackEventID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Detail" Type="text" />
+          <Property Name="OutsiderID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coming">
+          <Key>
+            <PropertyRef Name="ComingID" />
+          </Key>
+          <Property Name="ComingID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OutsiderID" Type="bigint" Nullable="false" />
+          <Property Name="TimeIn" Type="datetime" Nullable="false" />
+          <Property Name="TimeOut" Type="datetime" />
+          <Property Name="PlateNo" Type="nvarchar" MaxLength="40" />
+          <Property Name="IsDeliver" Type="bit" />
+          <Property Name="IsKickedOut" Type="bit" Nullable="false" />
+          <Property Name="Inspector" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ComputerName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TemporaryCardID" Type="smallint" />
+          <Property Name="ContactEMPID" Type="varchar" MaxLength="15" />
+          <Property Name="ContactSectionID" Type="varchar" MaxLength="4" />
+          <Property Name="ContactElse" Type="text" />
+          <Property Name="CompanyID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TelephoneNo" Type="nchar" MaxLength="20" />
+          <Property Name="Address" Type="text" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="WorkArea" Type="text" />
+          <Property Name="WorkType" Type="text" />
+          <Property Name="AgentID" Type="bigint" Nullable="false" />
+          <Property Name="AgentTelephoneNo" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="EmergencyContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmergencyCallNo" Type="nchar" MaxLength="20" />
+          <Property Name="TimeIn" Type="datetime" Nullable="false" />
+          <Property Name="EngineerEMPID" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Identifier">
+          <Key>
+            <PropertyRef Name="IdentifierID" />
+            <PropertyRef Name="IdentifierTypeID" />
+          </Key>
+          <Property Name="IdentifierID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdentifierTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Detail" Type="text" />
+          <Property Name="OutsiderID" Type="bigint" Nullable="false" />
+          <Property Name="HaveCopy" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IdentifierImage">
+          <Key>
+            <PropertyRef Name="IdentifierID" />
+            <PropertyRef Name="IdentifierTypeID" />
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="IdentifierID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdentifierTypeID" Type="smallint" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SnapDateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsCropped" Type="bit" Nullable="false" />
+          <Property Name="SpecificType" Type="text" />
+        </EntityType>
+        <EntityType Name="IdentifierType">
+          <Key>
+            <PropertyRef Name="IdentifierTypeID" />
+          </Key>
+          <Property Name="IdentifierTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IDLength" Type="smallint" Nullable="false" />
+          <Property Name="isFixedLength" Type="bit" Nullable="false" />
+          <Property Name="Detail" Type="text" />
+        </EntityType>
+        <EntityType Name="Outsider">
+          <Key>
+            <PropertyRef Name="OutsiderID" />
+          </Key>
+          <Property Name="OutsiderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="SName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Outsider_Group">
+          <Key>
+            <PropertyRef Name="OutsiderID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="OutsiderID" Type="bigint" Nullable="false" />
+          <Property Name="GroupID" Type="bigint" Nullable="false" />
+          <Property Name="havePhoto" Type="bit" Nullable="false" />
+          <Property Name="isPassed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="WorkAreaID" />
+          </Key>
+          <Property Name="WorkAreaID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Detail" Type="text" />
+        </EntityType>
+        <EntityType Name="WorkType">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Detail" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OutsiderDB1.dbo.v_BlackIdentifierList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_BlackIdentifierList">
+          <Key>
+            <PropertyRef Name="IdentifierTypeID" />
+            <PropertyRef Name="IdentifierID" />
+          </Key>
+          <Property Name="IdentifierID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdentifierTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OutsiderDB1.dbo.v_BlackInnerContractor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_BlackInnerContractor">
+          <Key>
+            <PropertyRef Name="NewID" />
+          </Key>
+          <Property Name="NewID" Type="int" Nullable="false" />
+          <Property Name="EMPName" Type="varchar" MaxLength="20" />
+          <Property Name="EMPSName" Type="varchar" MaxLength="50" />
+          <Property Name="FirstSup" Type="varchar" MaxLength="5" />
+          <Property Name="Company" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="DateofBirth" Type="smalldatetime" />
+          <Property Name="CitID" Type="char" MaxLength="13" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="CitAdd" Type="nvarchar" MaxLength="1000" />
+          <Property Name="EMPNameTh" Type="nvarchar" MaxLength="30" />
+          <Property Name="EMPSNameTh" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OutsiderDB1.dbo.v_Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_Employee">
+          <Key>
+            <PropertyRef Name="EMPID" />
+            
+          </Key>
+          <Property Name="EMPID" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="EMPName" Type="varchar" MaxLength="20" />
+          <Property Name="EMPSName" Type="varchar" MaxLength="50" />
+          <Property Name="FuncID" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="FuncName" Type="varchar" MaxLength="50" />
+          <Property Name="FuncAbbrev" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OutsiderDB1.dbo.v_GroupForSelect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_GroupForSelect">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="TimeIn" />
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="GroupID" Type="bigint" Nullable="false" />
+          <Property Name="TimeIn" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentSName" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotPassCount" Type="int" />
+          <Property Name="PassCount" Type="int" />
+          <Property Name="Total" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OutsiderDB1.dbo.v_Section' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="v_Section">
+          <Key>
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="FuncID" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="FuncName" Type="varchar" MaxLength="50" />
+          <Property Name="FuncAbbrev" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BlackEvent_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Store.Outsider" Multiplicity="1" />
+          <End Role="BlackEvent" Type="OutsiderDB1Model.Store.BlackEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="BlackEvent">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coming_Company">
+          <End Role="Company" Type="OutsiderDB1Model.Store.Company" Multiplicity="0..1" />
+          <End Role="Coming" Type="OutsiderDB1Model.Store.Coming" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Coming">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coming_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Store.Outsider" Multiplicity="1" />
+          <End Role="Coming" Type="OutsiderDB1Model.Store.Coming" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Coming">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Agent">
+          <End Role="Outsider" Type="OutsiderDB1Model.Store.Outsider" Multiplicity="1" />
+          <End Role="Group" Type="OutsiderDB1Model.Store.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Company">
+          <End Role="Company" Type="OutsiderDB1Model.Store.Company" Multiplicity="1" />
+          <End Role="Group" Type="OutsiderDB1Model.Store.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifier_IdentifierTypeID">
+          <End Role="IdentifierType" Type="OutsiderDB1Model.Store.IdentifierType" Multiplicity="1" />
+          <End Role="Identifier" Type="OutsiderDB1Model.Store.Identifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentifierType">
+              <PropertyRef Name="IdentifierTypeID" />
+            </Principal>
+            <Dependent Role="Identifier">
+              <PropertyRef Name="IdentifierTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifier_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Store.Outsider" Multiplicity="1" />
+          <End Role="Identifier" Type="OutsiderDB1Model.Store.Identifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Identifier">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdentifierImage_Identifier">
+          <End Role="Identifier" Type="OutsiderDB1Model.Store.Identifier" Multiplicity="1" />
+          <End Role="IdentifierImage" Type="OutsiderDB1Model.Store.IdentifierImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Identifier">
+              <PropertyRef Name="IdentifierID" />
+              <PropertyRef Name="IdentifierTypeID" />
+            </Principal>
+            <Dependent Role="IdentifierImage">
+              <PropertyRef Name="IdentifierID" />
+              <PropertyRef Name="IdentifierTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Outsider_Group_Group">
+          <End Role="Group" Type="OutsiderDB1Model.Store.Group" Multiplicity="1" />
+          <End Role="Outsider_Group" Type="OutsiderDB1Model.Store.Outsider_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Outsider_Group">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Outsider_Group_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Store.Outsider" Multiplicity="1" />
+          <End Role="Outsider_Group" Type="OutsiderDB1Model.Store.Outsider_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Outsider_Group">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OutsiderDB1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OutsiderDB1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlackEvents" EntityType="OutsiderDB1Model.BlackEvent" />
+          <EntitySet Name="Comings" EntityType="OutsiderDB1Model.Coming" />
+          <EntitySet Name="Companies" EntityType="OutsiderDB1Model.Company" />
+          <EntitySet Name="Identifiers" EntityType="OutsiderDB1Model.Identifier" />
+          <EntitySet Name="IdentifierImages" EntityType="OutsiderDB1Model.IdentifierImage" />
+          <EntitySet Name="IdentifierTypes" EntityType="OutsiderDB1Model.IdentifierType" />
+          <EntitySet Name="Outsiders" EntityType="OutsiderDB1Model.Outsider" />
+          <EntitySet Name="Outsider_Group" EntityType="OutsiderDB1Model.Outsider_Group" />
+          <EntitySet Name="WorkAreas" EntityType="OutsiderDB1Model.WorkArea" />
+          <EntitySet Name="WorkTypes" EntityType="OutsiderDB1Model.WorkType" />
+          <EntitySet Name="v_BlackIdentifierList" EntityType="OutsiderDB1Model.v_BlackIdentifierList" />
+          <EntitySet Name="v_BlackInnerContractor" EntityType="OutsiderDB1Model.v_BlackInnerContractor" />
+          <EntitySet Name="v_Employee" EntityType="OutsiderDB1Model.v_Employee" />
+          <EntitySet Name="v_Section" EntityType="OutsiderDB1Model.v_Section" />
+          <AssociationSet Name="FK_BlackEvent_Outsider" Association="OutsiderDB1Model.FK_BlackEvent_Outsider">
+            <End Role="Outsider" EntitySet="Outsiders" />
+            <End Role="BlackEvent" EntitySet="BlackEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coming_Company" Association="OutsiderDB1Model.FK_Coming_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Coming" EntitySet="Comings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coming_Outsider" Association="OutsiderDB1Model.FK_Coming_Outsider">
+            <End Role="Outsider" EntitySet="Outsiders" />
+            <End Role="Coming" EntitySet="Comings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifier_IdentifierTypeID" Association="OutsiderDB1Model.FK_Identifier_IdentifierTypeID">
+            <End Role="IdentifierType" EntitySet="IdentifierTypes" />
+            <End Role="Identifier" EntitySet="Identifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Identifier_Outsider" Association="OutsiderDB1Model.FK_Identifier_Outsider">
+            <End Role="Outsider" EntitySet="Outsiders" />
+            <End Role="Identifier" EntitySet="Identifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdentifierImage_Identifier" Association="OutsiderDB1Model.FK_IdentifierImage_Identifier">
+            <End Role="Identifier" EntitySet="Identifiers" />
+            <End Role="IdentifierImage" EntitySet="IdentifierImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Outsider_Group_Outsider" Association="OutsiderDB1Model.FK_Outsider_Group_Outsider">
+            <End Role="Outsider" EntitySet="Outsiders" />
+            <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+          </AssociationSet>
+          <EntitySet Name="v_GroupForSelect" EntityType="OutsiderDB1Model.v_GroupForSelect" />
+          <EntitySet Name="Groups" EntityType="OutsiderDB1Model.Group" />
+          <AssociationSet Name="FK_Group_Company" Association="OutsiderDB1Model.FK_Group_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Agent" Association="OutsiderDB1Model.FK_Group_Agent">
+            <End Role="Outsider" EntitySet="Outsiders" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Outsider_Group_Group" Association="OutsiderDB1Model.FK_Outsider_Group_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="BlackEvent">
+          <Key>
+            <PropertyRef Name="BlackEventID" />
+          </Key>
+          <Property Name="BlackEventID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_BlackEvent_Outsider" FromRole="BlackEvent" ToRole="Outsider" />
+        </EntityType>
+        <EntityType Name="Coming">
+          <Key>
+            <PropertyRef Name="ComingID" />
+          </Key>
+          <Property Name="ComingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+          <Property Name="TimeIn" Type="DateTime" Nullable="false" />
+          <Property Name="TimeOut" Type="DateTime" />
+          <Property Name="PlateNo" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeliver" Type="Boolean" />
+          <Property Name="IsKickedOut" Type="Boolean" Nullable="false" />
+          <Property Name="Inspector" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="ComputerName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TemporaryCardID" Type="Int16" />
+          <Property Name="ContactEMPID" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="ContactSectionID" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="ContactElse" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CompanyID" Type="Int64" />
+          <NavigationProperty Name="Company" Relationship="OutsiderDB1Model.FK_Coming_Company" FromRole="Coming" ToRole="Company" />
+          <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Coming_Outsider" FromRole="Coming" ToRole="Outsider" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Comings" Relationship="OutsiderDB1Model.FK_Coming_Company" FromRole="Company" ToRole="Coming" />
+          <Property Type="String" Name="TelephoneNo" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Groups" Relationship="OutsiderDB1Model.FK_Group_Company" FromRole="Company" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Identifier">
+          <Key>
+            <PropertyRef Name="IdentifierID" />
+            <PropertyRef Name="IdentifierTypeID" />
+          </Key>
+          <Property Name="IdentifierID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+          <Property Name="HaveCopy" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IdentifierType" Relationship="OutsiderDB1Model.FK_Identifier_IdentifierTypeID" FromRole="Identifier" ToRole="IdentifierType" />
+          <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Identifier_Outsider" FromRole="Identifier" ToRole="Outsider" />
+          <NavigationProperty Name="IdentifierImages" Relationship="OutsiderDB1Model.FK_IdentifierImage_Identifier" FromRole="Identifier" ToRole="IdentifierImage" />
+        </EntityType>
+        <EntityType Name="IdentifierImage">
+          <Key>
+            <PropertyRef Name="IdentifierID" />
+            <PropertyRef Name="IdentifierTypeID" />
+            <PropertyRef Name="FileName" />
+          </Key>
+          <Property Name="IdentifierID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SnapDateTime" Type="DateTime" Nullable="false" />
+          <Property Name="IsCropped" Type="Boolean" Nullable="false" />
+          <Property Name="SpecificType" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Identifier" Relationship="OutsiderDB1Model.FK_IdentifierImage_Identifier" FromRole="IdentifierImage" ToRole="Identifier" />
+        </EntityType>
+        <EntityType Name="IdentifierType">
+          <Key>
+            <PropertyRef Name="IdentifierTypeID" />
+          </Key>
+          <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IDLength" Type="Int16" Nullable="false" />
+          <Property Name="isFixedLength" Type="Boolean" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Identifiers" Relationship="OutsiderDB1Model.FK_Identifier_IdentifierTypeID" FromRole="IdentifierType" ToRole="Identifier" />
+        </EntityType>
+        <EntityType Name="Outsider">
+          <Key>
+            <PropertyRef Name="OutsiderID" />
+          </Key>
+          <Property Name="OutsiderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BlackEvents" Relationship="OutsiderDB1Model.FK_BlackEvent_Outsider" FromRole="Outsider" ToRole="BlackEvent" />
+          <NavigationProperty Name="Comings" Relationship="OutsiderDB1Model.FK_Coming_Outsider" FromRole="Outsider" ToRole="Coming" />
+          <NavigationProperty Name="Identifiers" Relationship="OutsiderDB1Model.FK_Identifier_Outsider" FromRole="Outsider" ToRole="Identifier" />
+          <NavigationProperty Name="Outsider_Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Outsider" FromRole="Outsider" ToRole="Outsider_Group" />
+          <NavigationProperty Name="Groups" Relationship="OutsiderDB1Model.FK_Group_Agent" FromRole="Outsider" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Outsider_Group">
+          <Key>
+            <PropertyRef Name="OutsiderID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+          <Property Name="GroupID" Type="Int64" Nullable="false" />
+          <Property Name="havePhoto" Type="Boolean" Nullable="false" />
+          <Property Name="isPassed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Outsider_Group_Outsider" FromRole="Outsider_Group" ToRole="Outsider" />
+          <NavigationProperty Name="Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Group" FromRole="Outsider_Group" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="WorkAreaID" />
+          </Key>
+          <Property Name="WorkAreaID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="WorkType">
+          <Key>
+            <PropertyRef Name="WorkTypeID" />
+          </Key>
+          <Property Name="WorkTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_BlackIdentifierList">
+          <Key>
+            <PropertyRef Name="IdentifierTypeID" />
+            <PropertyRef Name="IdentifierID" />
+          </Key>
+          <Property Name="IdentifierID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="IdentifierTypeID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_BlackInnerContractor">
+          <Key>
+            <PropertyRef Name="NewID" />
+          </Key>
+          <Property Name="NewID" Type="Int32" Nullable="false" />
+          <Property Name="EMPName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EMPSName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FirstSup" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="Company" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="DateofBirth" Type="DateTime" />
+          <Property Name="CitID" Type="String" MaxLength="13" Unicode="false" FixedLength="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CitAdd" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="EMPNameTh" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="EMPSNameTh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_Employee">
+          <Key>
+            <PropertyRef Name="EMPID" />
+          </Key>
+          <Property Name="EMPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="EMPName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EMPSName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FuncID" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="FuncName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FuncAbbrev" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_Section">
+          <Key>
+            <PropertyRef Name="FuncID" />
+          </Key>
+          <Property Name="FuncID" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="FuncName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FuncAbbrev" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_BlackEvent_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+          <End Role="BlackEvent" Type="OutsiderDB1Model.BlackEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="BlackEvent">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coming_Company">
+          <End Role="Company" Type="OutsiderDB1Model.Company" Multiplicity="0..1" />
+          <End Role="Coming" Type="OutsiderDB1Model.Coming" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Coming">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coming_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+          <End Role="Coming" Type="OutsiderDB1Model.Coming" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Coming">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifier_IdentifierTypeID">
+          <End Role="IdentifierType" Type="OutsiderDB1Model.IdentifierType" Multiplicity="1" />
+          <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentifierType">
+              <PropertyRef Name="IdentifierTypeID" />
+            </Principal>
+            <Dependent Role="Identifier">
+              <PropertyRef Name="IdentifierTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Identifier_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+          <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Identifier">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdentifierImage_Identifier">
+          <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="1" />
+          <End Role="IdentifierImage" Type="OutsiderDB1Model.IdentifierImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Identifier">
+              <PropertyRef Name="IdentifierID" />
+              <PropertyRef Name="IdentifierTypeID" />
+            </Principal>
+            <Dependent Role="IdentifierImage">
+              <PropertyRef Name="IdentifierID" />
+              <PropertyRef Name="IdentifierTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Outsider_Group_Outsider">
+          <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+          <End Role="Outsider_Group" Type="OutsiderDB1Model.Outsider_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Outsider_Group">
+              <PropertyRef Name="OutsiderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="v_GroupForSelect">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="TimeIn" />
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Type="Int64" Name="GroupID" Nullable="false" />
+          <Property Type="DateTime" Name="TimeIn" Nullable="false" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AgentName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AgentSName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="NotPassCount" />
+          <Property Type="Int32" Name="PassCount" />
+          <Property Type="Int32" Name="Total" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Type="Int64" Name="GroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="CompanyID" Nullable="false" />
+          <Property Type="String" Name="WorkArea" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="WorkType" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="AgentID" Nullable="false" />
+          <Property Type="String" Name="AgentTelephoneNo" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="EmergencyContact" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmergencyCallNo" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="TimeIn" Nullable="false" />
+          <Property Type="String" Name="EngineerEMPID" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="OutsiderDB1Model.FK_Group_Company" FromRole="Group" ToRole="Company" />
+          <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Group_Agent" FromRole="Group" ToRole="Outsider" />
+          <NavigationProperty Name="Outsider_Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Group" FromRole="Group" ToRole="Outsider_Group" />
+        </EntityType>
+        <Association Name="FK_Group_Company">
+          <End Type="OutsiderDB1Model.Company" Role="Company" Multiplicity="1" />
+          <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Agent">
+          <End Type="OutsiderDB1Model.Outsider" Role="Outsider" Multiplicity="1" />
+          <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Outsider">
+              <PropertyRef Name="OutsiderID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Outsider_Group_Group">
+          <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="1" />
+          <End Type="OutsiderDB1Model.Outsider_Group" Role="Outsider_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Outsider_Group">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OutsiderDB1ModelStoreContainer" CdmEntityContainer="OutsiderDB1Entities">
+          <EntitySetMapping Name="BlackEvents"><EntityTypeMapping TypeName="OutsiderDB1Model.BlackEvent"><MappingFragment StoreEntitySet="BlackEvent">
+            <ScalarProperty Name="BlackEventID" ColumnName="BlackEventID" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Detail" ColumnName="Detail" />
+            <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Comings"><EntityTypeMapping TypeName="OutsiderDB1Model.Coming"><MappingFragment StoreEntitySet="Coming">
+            <ScalarProperty Name="ComingID" ColumnName="ComingID" />
+            <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+            <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+            <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+            <ScalarProperty Name="PlateNo" ColumnName="PlateNo" />
+            <ScalarProperty Name="IsDeliver" ColumnName="IsDeliver" />
+            <ScalarProperty Name="IsKickedOut" ColumnName="IsKickedOut" />
+            <ScalarProperty Name="Inspector" ColumnName="Inspector" />
+            <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+            <ScalarProperty Name="TemporaryCardID" ColumnName="TemporaryCardID" />
+            <ScalarProperty Name="ContactEMPID" ColumnName="ContactEMPID" />
+            <ScalarProperty Name="ContactSectionID" ColumnName="ContactSectionID" />
+            <ScalarProperty Name="ContactElse" ColumnName="ContactElse" />
+            <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Companies"><EntityTypeMapping TypeName="OutsiderDB1Model.Company"><MappingFragment StoreEntitySet="Company">
+            <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Identifiers"><EntityTypeMapping TypeName="OutsiderDB1Model.Identifier"><MappingFragment StoreEntitySet="Identifier">
+            <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+            <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+            <ScalarProperty Name="Detail" ColumnName="Detail" />
+            <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+            <ScalarProperty Name="HaveCopy" ColumnName="HaveCopy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="IdentifierImages"><EntityTypeMapping TypeName="OutsiderDB1Model.IdentifierImage"><MappingFragment StoreEntitySet="IdentifierImage">
+            <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+            <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+            <ScalarProperty Name="FileName" ColumnName="FileName" />
+            <ScalarProperty Name="SnapDateTime" ColumnName="SnapDateTime" />
+            <ScalarProperty Name="IsCropped" ColumnName="IsCropped" />
+            <ScalarProperty Name="SpecificType" ColumnName="SpecificType" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="IdentifierTypes"><EntityTypeMapping TypeName="OutsiderDB1Model.IdentifierType"><MappingFragment StoreEntitySet="IdentifierType">
+            <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="IDLength" ColumnName="IDLength" />
+            <ScalarProperty Name="isFixedLength" ColumnName="isFixedLength" />
+            <ScalarProperty Name="Detail" ColumnName="Detail" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Outsiders"><EntityTypeMapping TypeName="OutsiderDB1Model.Outsider"><MappingFragment StoreEntitySet="Outsider">
+            <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="SName" ColumnName="SName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Outsider_Group"><EntityTypeMapping TypeName="OutsiderDB1Model.Outsider_Group"><MappingFragment StoreEntitySet="Outsider_Group">
+            <ScalarProperty Name="OutsiderID" ColumnName="OutsiderID" />
+            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+            <ScalarProperty Name="havePhoto" ColumnName="havePhoto" />
+            <ScalarProperty Name="isPassed" ColumnName="isPassed" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WorkAreas"><EntityTypeMapping TypeName="OutsiderDB1Model.WorkArea"><MappingFragment StoreEntitySet="WorkArea">
+            <ScalarProperty Name="WorkAreaID" ColumnName="WorkAreaID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Detail" ColumnName="Detail" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WorkTypes"><EntityTypeMapping TypeName="OutsiderDB1Model.WorkType"><MappingFragment StoreEntitySet="WorkType">
+            <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Detail" ColumnName="Detail" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_BlackIdentifierList"><EntityTypeMapping TypeName="OutsiderDB1Model.v_BlackIdentifierList"><MappingFragment StoreEntitySet="v_BlackIdentifierList">
+            <ScalarProperty Name="IdentifierID" ColumnName="IdentifierID" />
+            <ScalarProperty Name="IdentifierTypeID" ColumnName="IdentifierTypeID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_BlackInnerContractor"><EntityTypeMapping TypeName="OutsiderDB1Model.v_BlackInnerContractor"><MappingFragment StoreEntitySet="v_BlackInnerContractor">
+            <ScalarProperty Name="NewID" ColumnName="NewID" />
+            <ScalarProperty Name="EMPName" ColumnName="EMPName" />
+            <ScalarProperty Name="EMPSName" ColumnName="EMPSName" />
+            <ScalarProperty Name="FirstSup" ColumnName="FirstSup" />
+            <ScalarProperty Name="Company" ColumnName="Company" />
+            <ScalarProperty Name="Gender" ColumnName="Gender" />
+            <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+            <ScalarProperty Name="CitID" ColumnName="CitID" />
+            <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+            <ScalarProperty Name="CitAdd" ColumnName="CitAdd" />
+            <ScalarProperty Name="EMPNameTh" ColumnName="EMPNameTh" />
+            <ScalarProperty Name="EMPSNameTh" ColumnName="EMPSNameTh" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_Employee"><EntityTypeMapping TypeName="OutsiderDB1Model.v_Employee"><MappingFragment StoreEntitySet="v_Employee">
+            <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+            <ScalarProperty Name="EMPName" ColumnName="EMPName" />
+            <ScalarProperty Name="EMPSName" ColumnName="EMPSName" />
+            <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+            <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+            <ScalarProperty Name="FuncAbbrev" ColumnName="FuncAbbrev" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_Section"><EntityTypeMapping TypeName="OutsiderDB1Model.v_Section"><MappingFragment StoreEntitySet="v_Section">
+            <ScalarProperty Name="FuncID" ColumnName="FuncID" />
+            <ScalarProperty Name="FuncName" ColumnName="FuncName" />
+            <ScalarProperty Name="FuncAbbrev" ColumnName="FuncAbbrev" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_GroupForSelect">
+            <EntityTypeMapping TypeName="OutsiderDB1Model.v_GroupForSelect">
+              <MappingFragment StoreEntitySet="v_GroupForSelect">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="PassCount" ColumnName="PassCount" />
+                <ScalarProperty Name="NotPassCount" ColumnName="NotPassCount" />
+                <ScalarProperty Name="AgentSName" ColumnName="AgentSName" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="OutsiderDB1Model.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="EngineerEMPID" ColumnName="EngineerEMPID" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="EmergencyCallNo" ColumnName="EmergencyCallNo" />
+                <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
+                <ScalarProperty Name="AgentTelephoneNo" ColumnName="AgentTelephoneNo" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+                <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="97">
+        <EntityTypeShape EntityType="OutsiderDB1Model.BlackEvent" Width="1.5" PointX="3" PointY="7.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Coming" Width="1.5" PointX="6" PointY="6.75" Height="4.0956022135416648" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Company" Width="1.5" PointX="0.75" PointY="3.875" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Identifier" Width="1.5" PointX="3" PointY="11.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.IdentifierImage" Width="1.5" PointX="5.25" PointY="11.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.IdentifierType" Width="1.5" PointX="0.75" PointY="11.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Outsider" Width="1.5" PointX="0.75" PointY="7.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Outsider_Group" Width="1.5" PointX="5.25" PointY="3.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.WorkArea" Width="1.5" PointX="7.75" PointY="3.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.WorkType" Width="1.5" PointX="8.75" PointY="6.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.v_BlackIdentifierList" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.v_BlackInnerContractor" Width="1.5" PointX="9.75" PointY="0.75" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.v_Employee" Width="1.5" PointX="8.75" PointY="9.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.v_Section" Width="1.5" PointX="10.75" PointY="5.75" Height="1.5956835937500031" IsExpanded="true" />
+        <AssociationConnector Association="OutsiderDB1Model.FK_BlackEvent_Outsider" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="8.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Coming_Company" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.2688650598958331" />
+          <ConnectorPoint PointX="2.75" PointY="5.2688650598958331" />
+          <ConnectorPoint PointX="2.75" PointY="7.0186979166666674" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.0186979166666665" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.0186979166666674" />
+          <ConnectorPoint PointX="5.75" PointY="7.0186979166666674" />
+          <ConnectorPoint PointX="5.75" PointY="6.4999999999999991" />
+          <ConnectorPoint PointX="6.75" PointY="6.4999999999999991" />
+          <ConnectorPoint PointX="6.75" PointY="6.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Coming_Outsider" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.9610400390624978" />
+          <ConnectorPoint PointX="6" PointY="9.9610400390624978" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Identifier_IdentifierTypeID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="12.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Identifier_Outsider" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2500000000000013" PointY="10.057190755208334" />
+          <ConnectorPoint PointX="2.625" PointY="10.432190755208332" />
+          <ConnectorPoint PointX="2.625" PointY="12.778595377604166" />
+          <ConnectorPoint PointX="3" PointY="12.778595377604166" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_IdentifierImage_Identifier" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.807444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="12.807444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Outsider_Group_Outsider" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.525383615384615" />
+          <ConnectorPoint PointX="2.6503836153846159" PointY="7.125" />
+          <ConnectorPoint PointX="4.875" PointY="7.125" />
+          <ConnectorPoint PointX="4.875" PointY="6.047587890625" />
+          <ConnectorPoint PointX="5.25" PointY="5.672587890625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="OutsiderDB1Model.v_GroupForSelect" Width="1.5" PointX="11" PointY="8.125" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="OutsiderDB1Model.Group" Width="1.5" PointX="3" PointY="3.25" Height="3.5186979166666674" />
+        <AssociationConnector Association="OutsiderDB1Model.FK_Group_Company" >
+          <ConnectorPoint PointX="2.25" PointY="4.509432529947917" />
+          <ConnectorPoint PointX="3" PointY="4.509432529947917" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Group_Agent" >
+          <ConnectorPoint PointX="2.2257692307692305" PointY="7.5" />
+          <ConnectorPoint PointX="2.625" PointY="7.1007692307692309" />
+          <ConnectorPoint PointX="2.625" PointY="6.01878098828125" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="6.0187809882812493" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="6.01878098828125" />
+          <ConnectorPoint PointX="3" PointY="6.01878098828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="OutsiderDB1Model.FK_Outsider_Group_Group" >
+          <ConnectorPoint PointX="4.5" PointY="4.555041445312499" />
+          <ConnectorPoint PointX="5.25" PointY="4.555041445312499" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

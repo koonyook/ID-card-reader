@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="VBOCR">
+</Property><Property Name="Solution File" Value="C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\VBOCR.sln">
+</Property><Property Name="User Options File" Value="C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\VBOCR.suo">
+</Property><Property Name="Date" Value="10 May, 2011">
+</Property><Property Name="Time" Value="8:05">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="VBOCR.sln" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR.sln">
+</Event><Event ErrorLevel="0" Project="" Source="VBOCR.suo" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR.suo">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\VBOCR.vbproj" Description="Project file successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\VBOCR.vbproj">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\VBOCR.vbproj.user" Description="Project user file successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\VBOCR.vbproj.user">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\Form1.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\Form1.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\Form1.Designer.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\Form1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\AssemblyInfo.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Application.Designer.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Resources.Designer.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Settings.Designer.vb" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Application.myapp" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Settings.settings" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\Form1.resx" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\Form1.resx">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\My Project\Resources.resx" Description="File successfully backed up as C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\Backup\VBOCR\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\VBOCR.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="VBOCR" Source="VBOCR\VBOCR.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="VBOCR.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="VBOCR.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="VBOCR" Source="VBOCR\VBOCR.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

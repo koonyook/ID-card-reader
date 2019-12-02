@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OutsiderDB1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="OutsiderDB1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BlackEvents" EntityType="OutsiderDB1Model.BlackEvent" />
+    <EntitySet Name="Comings" EntityType="OutsiderDB1Model.Coming" />
+    <EntitySet Name="Companies" EntityType="OutsiderDB1Model.Company" />
+    <EntitySet Name="Identifiers" EntityType="OutsiderDB1Model.Identifier" />
+    <EntitySet Name="IdentifierImages" EntityType="OutsiderDB1Model.IdentifierImage" />
+    <EntitySet Name="IdentifierTypes" EntityType="OutsiderDB1Model.IdentifierType" />
+    <EntitySet Name="Outsiders" EntityType="OutsiderDB1Model.Outsider" />
+    <EntitySet Name="Outsider_Group" EntityType="OutsiderDB1Model.Outsider_Group" />
+    <EntitySet Name="WorkAreas" EntityType="OutsiderDB1Model.WorkArea" />
+    <EntitySet Name="WorkTypes" EntityType="OutsiderDB1Model.WorkType" />
+    <EntitySet Name="v_BlackIdentifierList" EntityType="OutsiderDB1Model.v_BlackIdentifierList" />
+    <EntitySet Name="v_BlackInnerContractor" EntityType="OutsiderDB1Model.v_BlackInnerContractor" />
+    <EntitySet Name="v_Employee" EntityType="OutsiderDB1Model.v_Employee" />
+    <EntitySet Name="v_Section" EntityType="OutsiderDB1Model.v_Section" />
+    <AssociationSet Name="FK_BlackEvent_Outsider" Association="OutsiderDB1Model.FK_BlackEvent_Outsider">
+      <End Role="Outsider" EntitySet="Outsiders" />
+      <End Role="BlackEvent" EntitySet="BlackEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coming_Company" Association="OutsiderDB1Model.FK_Coming_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Coming" EntitySet="Comings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coming_Outsider" Association="OutsiderDB1Model.FK_Coming_Outsider">
+      <End Role="Outsider" EntitySet="Outsiders" />
+      <End Role="Coming" EntitySet="Comings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Identifier_IdentifierTypeID" Association="OutsiderDB1Model.FK_Identifier_IdentifierTypeID">
+      <End Role="IdentifierType" EntitySet="IdentifierTypes" />
+      <End Role="Identifier" EntitySet="Identifiers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Identifier_Outsider" Association="OutsiderDB1Model.FK_Identifier_Outsider">
+      <End Role="Outsider" EntitySet="Outsiders" />
+      <End Role="Identifier" EntitySet="Identifiers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdentifierImage_Identifier" Association="OutsiderDB1Model.FK_IdentifierImage_Identifier">
+      <End Role="Identifier" EntitySet="Identifiers" />
+      <End Role="IdentifierImage" EntitySet="IdentifierImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outsider_Group_Outsider" Association="OutsiderDB1Model.FK_Outsider_Group_Outsider">
+      <End Role="Outsider" EntitySet="Outsiders" />
+      <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+    </AssociationSet>
+    <EntitySet Name="v_GroupForSelect" EntityType="OutsiderDB1Model.v_GroupForSelect" />
+    <EntitySet Name="Groups" EntityType="OutsiderDB1Model.Group" />
+    <AssociationSet Name="FK_Group_Company" Association="OutsiderDB1Model.FK_Group_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Agent" Association="OutsiderDB1Model.FK_Group_Agent">
+      <End Role="Outsider" EntitySet="Outsiders" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outsider_Group_Group" Association="OutsiderDB1Model.FK_Outsider_Group_Group">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Outsider_Group" EntitySet="Outsider_Group" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BlackEvent">
+    <Key>
+      <PropertyRef Name="BlackEventID" />
+    </Key>
+    <Property Name="BlackEventID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_BlackEvent_Outsider" FromRole="BlackEvent" ToRole="Outsider" />
+  </EntityType>
+  <EntityType Name="Coming">
+    <Key>
+      <PropertyRef Name="ComingID" />
+    </Key>
+    <Property Name="ComingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+    <Property Name="TimeIn" Type="DateTime" Nullable="false" />
+    <Property Name="TimeOut" Type="DateTime" />
+    <Property Name="PlateNo" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="IsDeliver" Type="Boolean" />
+    <Property Name="IsKickedOut" Type="Boolean" Nullable="false" />
+    <Property Name="Inspector" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="ComputerName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="TemporaryCardID" Type="Int16" />
+    <Property Name="ContactEMPID" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="ContactSectionID" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="ContactElse" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="CompanyID" Type="Int64" />
+    <NavigationProperty Name="Company" Relationship="OutsiderDB1Model.FK_Coming_Company" FromRole="Coming" ToRole="Company" />
+    <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Coming_Outsider" FromRole="Coming" ToRole="Outsider" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Comings" Relationship="OutsiderDB1Model.FK_Coming_Company" FromRole="Company" ToRole="Coming" />
+    <Property Type="String" Name="TelephoneNo" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Groups" Relationship="OutsiderDB1Model.FK_Group_Company" FromRole="Company" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="Identifier">
+    <Key>
+      <PropertyRef Name="IdentifierID" />
+      <PropertyRef Name="IdentifierTypeID" />
+    </Key>
+    <Property Name="IdentifierID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+    <Property Name="HaveCopy" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IdentifierType" Relationship="OutsiderDB1Model.FK_Identifier_IdentifierTypeID" FromRole="Identifier" ToRole="IdentifierType" />
+    <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Identifier_Outsider" FromRole="Identifier" ToRole="Outsider" />
+    <NavigationProperty Name="IdentifierImages" Relationship="OutsiderDB1Model.FK_IdentifierImage_Identifier" FromRole="Identifier" ToRole="IdentifierImage" />
+  </EntityType>
+  <EntityType Name="IdentifierImage">
+    <Key>
+      <PropertyRef Name="IdentifierID" />
+      <PropertyRef Name="IdentifierTypeID" />
+      <PropertyRef Name="FileName" />
+    </Key>
+    <Property Name="IdentifierID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SnapDateTime" Type="DateTime" Nullable="false" />
+    <Property Name="IsCropped" Type="Boolean" Nullable="false" />
+    <Property Name="SpecificType" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Identifier" Relationship="OutsiderDB1Model.FK_IdentifierImage_Identifier" FromRole="IdentifierImage" ToRole="Identifier" />
+  </EntityType>
+  <EntityType Name="IdentifierType">
+    <Key>
+      <PropertyRef Name="IdentifierTypeID" />
+    </Key>
+    <Property Name="IdentifierTypeID" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IDLength" Type="Int16" Nullable="false" />
+    <Property Name="isFixedLength" Type="Boolean" Nullable="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Identifiers" Relationship="OutsiderDB1Model.FK_Identifier_IdentifierTypeID" FromRole="IdentifierType" ToRole="Identifier" />
+  </EntityType>
+  <EntityType Name="Outsider">
+    <Key>
+      <PropertyRef Name="OutsiderID" />
+    </Key>
+    <Property Name="OutsiderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BlackEvents" Relationship="OutsiderDB1Model.FK_BlackEvent_Outsider" FromRole="Outsider" ToRole="BlackEvent" />
+    <NavigationProperty Name="Comings" Relationship="OutsiderDB1Model.FK_Coming_Outsider" FromRole="Outsider" ToRole="Coming" />
+    <NavigationProperty Name="Identifiers" Relationship="OutsiderDB1Model.FK_Identifier_Outsider" FromRole="Outsider" ToRole="Identifier" />
+    <NavigationProperty Name="Outsider_Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Outsider" FromRole="Outsider" ToRole="Outsider_Group" />
+    <NavigationProperty Name="Groups" Relationship="OutsiderDB1Model.FK_Group_Agent" FromRole="Outsider" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="Outsider_Group">
+    <Key>
+      <PropertyRef Name="OutsiderID" />
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="OutsiderID" Type="Int64" Nullable="false" />
+    <Property Name="GroupID" Type="Int64" Nullable="false" />
+    <Property Name="havePhoto" Type="Boolean" Nullable="false" />
+    <Property Name="isPassed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Outsider_Group_Outsider" FromRole="Outsider_Group" ToRole="Outsider" />
+    <NavigationProperty Name="Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Group" FromRole="Outsider_Group" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="WorkArea">
+    <Key>
+      <PropertyRef Name="WorkAreaID" />
+    </Key>
+    <Property Name="WorkAreaID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="WorkType">
+    <Key>
+      <PropertyRef Name="WorkTypeID" />
+    </Key>
+    <Property Name="WorkTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="v_BlackIdentifierList">
+    <Key>
+      <PropertyRef Name="IdentifierTypeID" />
+      <PropertyRef Name="IdentifierID" />
+    </Key>
+    <Property Name="IdentifierID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
+    <Property Name="IdentifierTypeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_BlackInnerContractor">
+    <Key>
+      <PropertyRef Name="NewID" />
+    </Key>
+    <Property Name="NewID" Type="Int32" Nullable="false" />
+    <Property Name="EMPName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EMPSName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstSup" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="Company" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="DateofBirth" Type="DateTime" />
+    <Property Name="CitID" Type="String" MaxLength="13" Unicode="false" FixedLength="true" />
+    <Property Name="Telephone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CitAdd" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="EMPNameTh" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="EMPSNameTh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="v_Employee">
+    <Key>
+      <PropertyRef Name="EMPID" />
+    </Key>
+    <Property Name="EMPID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="EMPName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="EMPSName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FuncID" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="FuncName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FuncAbbrev" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="v_Section">
+    <Key>
+      <PropertyRef Name="FuncID" />
+    </Key>
+    <Property Name="FuncID" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="FuncName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FuncAbbrev" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_BlackEvent_Outsider">
+    <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+    <End Role="BlackEvent" Type="OutsiderDB1Model.BlackEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsider">
+        <PropertyRef Name="OutsiderID" />
+      </Principal>
+      <Dependent Role="BlackEvent">
+        <PropertyRef Name="OutsiderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coming_Company">
+    <End Role="Company" Type="OutsiderDB1Model.Company" Multiplicity="0..1" />
+    <End Role="Coming" Type="OutsiderDB1Model.Coming" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Coming">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coming_Outsider">
+    <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+    <End Role="Coming" Type="OutsiderDB1Model.Coming" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsider">
+        <PropertyRef Name="OutsiderID" />
+      </Principal>
+      <Dependent Role="Coming">
+        <PropertyRef Name="OutsiderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Identifier_IdentifierTypeID">
+    <End Role="IdentifierType" Type="OutsiderDB1Model.IdentifierType" Multiplicity="1" />
+    <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IdentifierType">
+        <PropertyRef Name="IdentifierTypeID" />
+      </Principal>
+      <Dependent Role="Identifier">
+        <PropertyRef Name="IdentifierTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Identifier_Outsider">
+    <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+    <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsider">
+        <PropertyRef Name="OutsiderID" />
+      </Principal>
+      <Dependent Role="Identifier">
+        <PropertyRef Name="OutsiderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdentifierImage_Identifier">
+    <End Role="Identifier" Type="OutsiderDB1Model.Identifier" Multiplicity="1" />
+    <End Role="IdentifierImage" Type="OutsiderDB1Model.IdentifierImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Identifier">
+        <PropertyRef Name="IdentifierID" />
+        <PropertyRef Name="IdentifierTypeID" />
+      </Principal>
+      <Dependent Role="IdentifierImage">
+        <PropertyRef Name="IdentifierID" />
+        <PropertyRef Name="IdentifierTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outsider_Group_Outsider">
+    <End Role="Outsider" Type="OutsiderDB1Model.Outsider" Multiplicity="1" />
+    <End Role="Outsider_Group" Type="OutsiderDB1Model.Outsider_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsider">
+        <PropertyRef Name="OutsiderID" />
+      </Principal>
+      <Dependent Role="Outsider_Group">
+        <PropertyRef Name="OutsiderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="v_GroupForSelect">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="TimeIn" />
+      <PropertyRef Name="CompanyName" />
+    </Key>
+    <Property Type="Int64" Name="GroupID" Nullable="false" />
+    <Property Type="DateTime" Name="TimeIn" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AgentName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AgentSName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="NotPassCount" />
+    <Property Type="Int32" Name="PassCount" />
+    <Property Type="Int32" Name="Total" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Type="Int64" Name="GroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="CompanyID" Nullable="false" />
+    <Property Type="String" Name="WorkArea" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WorkType" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="AgentID" Nullable="false" />
+    <Property Type="String" Name="AgentTelephoneNo" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="EmergencyContact" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EmergencyCallNo" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="TimeIn" Nullable="false" />
+    <Property Type="String" Name="EngineerEMPID" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Company" Relationship="OutsiderDB1Model.FK_Group_Company" FromRole="Group" ToRole="Company" />
+    <NavigationProperty Name="Outsider" Relationship="OutsiderDB1Model.FK_Group_Agent" FromRole="Group" ToRole="Outsider" />
+    <NavigationProperty Name="Outsider_Group" Relationship="OutsiderDB1Model.FK_Outsider_Group_Group" FromRole="Group" ToRole="Outsider_Group" />
+  </EntityType>
+  <Association Name="FK_Group_Company">
+    <End Type="OutsiderDB1Model.Company" Role="Company" Multiplicity="1" />
+    <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Agent">
+    <End Type="OutsiderDB1Model.Outsider" Role="Outsider" Multiplicity="1" />
+    <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsider">
+        <PropertyRef Name="OutsiderID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outsider_Group_Group">
+    <End Type="OutsiderDB1Model.Group" Role="Group" Multiplicity="1" />
+    <End Type="OutsiderDB1Model.Outsider_Group" Role="Outsider_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="Outsider_Group">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

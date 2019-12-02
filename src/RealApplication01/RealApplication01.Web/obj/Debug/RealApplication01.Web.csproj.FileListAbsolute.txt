@@ -1,0 +1,9 @@
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\RealApplication01.Web.dll
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\RealApplication01.Web.pdb
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\obj\Debug\RealApplication01.Web.dll
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\obj\Debug\RealApplication01.Web.pdb
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\Atalasoft.dotImage.dll
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\Atalasoft.dotImage.Lib.dll
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\Atalasoft.Shared.dll
+C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\bin\Atalasoft.dotImage.xml

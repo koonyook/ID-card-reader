@@ -1,0 +1,1 @@
+FJ.Core เอาไว้ใช้แปลง WritableBitmap Object ให้เป็น Stream

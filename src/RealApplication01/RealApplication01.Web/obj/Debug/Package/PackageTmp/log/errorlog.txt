@@ -1,0 +1,5 @@
+4/30/2011 17:20:35 : System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at RealApplication01.Web.ImageUploadHandler.ProcessRequest(HttpContext context) in C:\Users\Multiply\Desktop\SilverlightLab\RealApplication01\RealApplication01.Web\ImageUploadHandler.ashx.cs:line 46

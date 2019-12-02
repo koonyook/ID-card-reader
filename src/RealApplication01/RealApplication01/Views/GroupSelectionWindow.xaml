@@ -1,0 +1,56 @@
+﻿<controls:ChildWindow x:Class="RealApplication01.Views.GroupSelectionWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="573" Height="468" 
+           Title="GroupSelectionWindow" HasCloseButton="False" mc:Ignorable="d" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:RealApplication01.Web" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" Loaded="ChildWindow_Loaded">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+		<riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:v_GroupForSelect, CreateList=true}" Height="0" LoadedData="v_GroupForSelectDomainDataSource_LoadedData" Name="v_GroupForSelectDomainDataSource" QueryName="GetV_GroupForSelectWithFilterQuery" Width="0">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+			<riaControls:DomainDataSource.QueryParameters>
+				<riaControls:Parameter ParameterName="searcher" Value="{Binding ElementName=searcherTextBox, Path=Text}" />
+			</riaControls:DomainDataSource.QueryParameters>
+		</riaControls:DomainDataSource>
+		
+		<TextBox Name="searcherTextBox" Margin="8,8,407,363" Height="23" KeyDown="searcherTextBox_KeyDown" />
+		<Button Command="{Binding Path=LoadCommand, ElementName=v_GroupForSelectDomainDataSource}" Content="Search" Name="outsiderDomainDataSourceLoadButton" Margin="150,8,343,363" />
+
+		<sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ElementName=v_GroupForSelectDomainDataSource, Path=Data}" Name="v_GroupForSelectDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserReorderColumns="False" ColumnWidth="Auto" Margin="0,37,1,0" IsReadOnly="True">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn x:Name="companyNameColumn" Binding="{Binding Path=CompanyName, Mode=OneWay}" Header="Company" IsReadOnly="True" Width="SizeToHeader" />
+				<sdk:DataGridTextColumn x:Name="agentNameColumn" Binding="{Binding Path=AgentName}" Header="Agent Name" Width="SizeToHeader" />
+				<sdk:DataGridTextColumn x:Name="agentSNameColumn" Binding="{Binding Path=AgentSName}" Header="Agent Surame" Width="SizeToHeader" />
+				<sdk:DataGridTemplateColumn x:Name="timeInColumn" Header="Check-In" IsReadOnly="True" Width="SizeToHeader" CanUserSort="True">
+					<sdk:DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate>
+							<sdk:DatePicker SelectedDate="{Binding Path=TimeIn, Mode=OneWay}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellEditingTemplate>
+					<sdk:DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path=TimeIn, StringFormat=\{0:d\}}" />
+						</DataTemplate>
+					</sdk:DataGridTemplateColumn.CellTemplate>
+				</sdk:DataGridTemplateColumn>
+				<sdk:DataGridTextColumn x:Name="passCountColumn" Binding="{Binding Path=PassCount}" Header="Pass" Width="SizeToHeader" />
+				<sdk:DataGridTextColumn x:Name="totalColumn" Binding="{Binding Path=Total}" Header="Total" Width="SizeToHeader" />
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+		<!--
+		<riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:Group, CreateList=true}" Height="0" LoadedData="groupDomainDataSource_LoadedData" Name="groupDomainDataSource" QueryName="GetGroupsQuery" Width="0">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+		</riaControls:DomainDataSource>
+		-->
+	</Grid>
+</controls:ChildWindow>

@@ -1,0 +1,28 @@
+﻿<controls:ChildWindow x:Class="RealApplication01.Views.AddPersonWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="298" Height="168" 
+           Title="AddPersonWindow">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+		<TextBox Text="{Binding cardID, Mode=TwoWay, ValidatesOnExceptions=True}" Height="23" HorizontalAlignment="Left" Margin="61,8,0,0" Name="cardIDTextBox" VerticalAlignment="Top" Width="204" />
+		<ComboBox ItemsSource="{Binding identifierTypeList}" SelectedItem="{Binding cardIdentifierType,Mode=TwoWay}" Height="23" HorizontalAlignment="Left" Margin="61,41,0,0" Name="cardTypeComboBox" VerticalAlignment="Top" Width="202" Loaded="cardTypeComboBox_Loaded">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+		<CheckBox IsChecked="{Binding haveCopy, Mode=TwoWay}" Height="16" HorizontalAlignment="Left" Margin="61,73,0,0" Name="haveCopyCheckBox" VerticalAlignment="Top" />
+		<TextBlock HorizontalAlignment="Left" Margin="12,4,0,0" Name="textBlock1" Style="{StaticResource ThaiTextBlock}" Text="รหัสบัตร" VerticalAlignment="Top" />
+		<TextBlock HorizontalAlignment="Left" Margin="12,36,0,0" Name="textBlock2" Style="{StaticResource ThaiTextBlock}" Text="ชนิดบัตร" VerticalAlignment="Top" />
+		<TextBlock HorizontalAlignment="Left" Margin="12,66,0,0" Name="textBlock5" Style="{StaticResource ThaiTextBlock}" Text="มีสำเนา" VerticalAlignment="Top" />
+	</Grid>
+</controls:ChildWindow>

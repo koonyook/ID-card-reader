@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealApplication01", "RealApplication01\RealApplication01.csproj", "{2C08F0DB-E28F-41FA-8FF4-4789AC61A9A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5} = {CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealApplication01.Web", "RealApplication01.Web\RealApplication01.Web.csproj", "{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C08F0DB-E28F-41FA-8FF4-4789AC61A9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C08F0DB-E28F-41FA-8FF4-4789AC61A9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C08F0DB-E28F-41FA-8FF4-4789AC61A9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C08F0DB-E28F-41FA-8FF4-4789AC61A9A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF7A54D2-4B5F-436F-AF2C-485977AD3EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

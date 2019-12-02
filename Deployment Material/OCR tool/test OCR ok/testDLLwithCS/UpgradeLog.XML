@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="testDLLwithCS">
+</Property><Property Name="Solution File" Value="C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS.sln">
+</Property><Property Name="User Options File" Value="C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS.suo">
+</Property><Property Name="Date" Value="07 April, 2011">
+</Property><Property Name="Time" Value="10:37">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="testDLLwithCS.sln" Description="File successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS.sln">
+</Event><Event ErrorLevel="0" Project="" Source="testDLLwithCS.suo" Description="File successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS.suo">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\testDLLwithCS.csproj" Description="Project file successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS\testDLLwithCS.csproj">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\testDLLwithCS.csproj.user" Description="Project user file successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS\testDLLwithCS.csproj.user">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\Program.cs" Description="File successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS\Program.cs">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\Multiply\Desktop\project\testDLLwithCS\Backup\testDLLwithCS\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\testDLLwithCS.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="testDLLwithCS" Source="testDLLwithCS\testDLLwithCS.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="testDLLwithCS.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="testDLLwithCS.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="testDLLwithCS" Source="testDLLwithCS\testDLLwithCS.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

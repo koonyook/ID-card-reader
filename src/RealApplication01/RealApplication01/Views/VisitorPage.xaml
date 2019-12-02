@@ -1,0 +1,146 @@
+﻿<navigation:Page xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="RealApplication01.Views.VisitorPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="VisitorPage Page" Loaded="Page_Loaded">
+	<UserControl.Resources>
+		<!-- This will make listbox smoother-->
+		<ItemsPanelTemplate x:Key="SmoothItemsPanelTemplate">
+			<!-- <StackPanel/> -->
+			<toolkit:WrapPanel />
+		</ItemsPanelTemplate>
+	</UserControl.Resources>
+	
+	<Grid x:Name="LayoutRoot">	<!-- I will bind this LayoutRoot with datacontext=myvar.checkInVisitorPage -->
+		
+			<TextBlock Height="23" Name="headerText" Style="{StaticResource HeaderTextStyle}" Text="Check in" Margin="0,15,0,0" VerticalAlignment="Top" />
+			<TextBox Height="23" Text="{Binding debug}" Margin="78,12,0,0" VerticalAlignment="Top" IsEnabled="False" />
+			<TextBlock Text="{Binding concludeString}" Style="{StaticResource ConcludeTextBlock}" Margin="0,41,130,0" Name="concludeStringTextBlock" VerticalAlignment="Top" />
+
+		<ListBox Name="visitorListBox" ItemsSource="{Binding checkInVisitorList}"  SelectedItem="{Binding selectedVisitor,Mode=TwoWay}" Margin="0,70,0,41">
+			<!-- ItemsPanel="{StaticResource SmoothItemsPanelTemplate}"-->
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<toolkit:WrapPanel Style="{StaticResource MyWrapPanel}" />
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="{Binding borderColor}" Style="{StaticResource MyBorder}">
+					<Grid>
+					<StackPanel Orientation="Horizontal">
+							<StackPanel Orientation="Vertical">
+								<Image Height="150" Name="image1" Source="{Binding imageSource}" Stretch="Fill" Width="238" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Status:" VerticalAlignment="Center" />
+									<TextBlock Name="statusTextBlock" Text="{Binding safetyStatus}" FontSize="24" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel Orientation="Vertical">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Name="cardTypeTextBlock" Text="{Binding identifierTypeName}" VerticalAlignment="Center" Margin="10,0,0,0" />
+									<TextBlock Text=" ID:" VerticalAlignment="Center" />
+									<TextBox Name="cardID" Width="170" Text="{Binding identifierID, Mode=TwoWay}" IsEnabled="{Binding canEditID}" HorizontalAlignment="Stretch" />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal">
+
+									<TextBlock Text="Company: " VerticalAlignment="Center" Margin="10,0,0,0"/>
+											
+									<ComboBox Name="companyComboBox" Width="100"  ItemsSource="{Binding companyList}" SelectedItem="{Binding selectedCompany, Mode=TwoWay}">
+										<ComboBox.ItemTemplate>
+											<DataTemplate>
+												<StackPanel Orientation="Horizontal">
+													<TextBlock Width="200" Text="{Binding Name}"/>
+												</StackPanel>
+											</DataTemplate>
+										</ComboBox.ItemTemplate>
+									</ComboBox>
+									<!---->
+									<TextBox IsEnabled="{Binding isOtherCompanySelected}" Name="otherCompany" Width="120"  Text="{Binding otherCompany, Mode=TwoWay}"  FontFamily="Portable User Interface" />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="เบอร์โทรบริษัท: " VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" FontFamily="Courier New" />
+									<TextBox Width="170" IsEnabled="{Binding isOtherCompanySelected}" Text="{Binding companyPhoneNo,Mode=TwoWay}" HorizontalAlignment="Stretch" />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="ทะเบียนรถ: " VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" FontFamily="Courier New" />
+									<TextBox Name="plateNo" Width="170" Text="{Binding plateNo,Mode=TwoWay}" HorizontalAlignment="Stretch" FontSize="16" FontFamily="Courier New" />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal">
+									<CheckBox Content=":มาส่งของ" Height="23" Name="checkBox1" IsChecked="{Binding isDeliver, Mode=TwoWay}" Margin="10,0,0,0" FontSize="16" VerticalContentAlignment="Stretch" FontFamily="Courier New" FlowDirection="RightToLeft"  />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Height="23" Text="ติดต่อ:" Margin="10,0,0,0" FontSize="16" FontFamily="Courier New" VerticalAlignment="Top" />
+									<StackPanel Orientation="Vertical">
+										<StackPanel Orientation="Horizontal">
+											<RadioButton IsChecked="{Binding isSectionSelected,Mode=TwoWay}" Content="Section" Height="16" Name="sectionRadioButton" GroupName="{Binding index, Mode=TwoWay}" />
+											<ComboBox IsEnabled="{Binding isSectionSelected}" SelectedItem="{Binding selectedSection,Mode=TwoWay}" Height="23" Name="sectionComboBox" Width="120" ItemsSource="{Binding sectionList}">
+												<ComboBox.ItemTemplate>
+													<DataTemplate>
+														<StackPanel Orientation="Horizontal">
+																
+															<TextBlock Width="180" Text="{Binding FuncName}"/>
+															<TextBlock Text=" ("/>
+															<TextBlock Text="{Binding FuncAbbrev}"/>
+															<TextBlock Text=")"/>
+																	
+														</StackPanel>
+													</DataTemplate>
+												</ComboBox.ItemTemplate>
+											</ComboBox>
+										</StackPanel>
+										<StackPanel Orientation="Horizontal">
+											<RadioButton IsChecked="{Binding isPersonSelected,Mode=TwoWay}" Content="Person" Height="16" Name="personRadioButton" GroupName="{Binding index, Mode=TwoWay}" />
+											<ComboBox IsEnabled="{Binding isPersonSelected}" SelectedItem="{Binding selectedPerson,Mode=TwoWay}" Height="23" Name="personComboBox" Width="120" ItemsSource="{Binding employeeList}">
+												<ComboBox.ItemTemplate>
+													<DataTemplate>
+														<StackPanel Orientation="Horizontal">
+															<TextBlock Text="{Binding EMPName}"/>
+															<TextBlock Text=" "/>
+															<TextBlock Text="{Binding EMPSName}"/>
+															<TextBlock Text=" ("/>
+															<TextBlock Text="{Binding FuncAbbrev}"/>
+															<TextBlock Text=")"/>
+														</StackPanel>
+													</DataTemplate>
+												</ComboBox.ItemTemplate>
+											</ComboBox>
+										</StackPanel>
+										<StackPanel Orientation="Horizontal">
+											<RadioButton IsChecked="{Binding isElseSelected, Mode=TwoWay}" Content="else" Height="16" Name="elseRadioButton" GroupName="{Binding index, Mode=TwoWay}" />
+											<TextBox IsEnabled="{Binding isElseSelected}" Text="{Binding contactElseText,Mode=TwoWay}" Height="23" Name="elseTextBox" Width="120" >
+														
+											</TextBox>
+										</StackPanel>
+									</StackPanel>
+								</StackPanel>
+										
+							</StackPanel>
+						</StackPanel>
+					</Grid>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+					
+		</ListBox>
+		
+		<Button IsEnabled="{Binding isNewGroup}" Content="เพิ่มคนไม่มีบัตร" Style="{StaticResource ThaiButton}" Click="newPersonButton_Click" Margin="12,0,0,8" HorizontalAlignment="Left"  Name="newPersonButton" VerticalAlignment="Bottom" Width="90" />
+		<Button IsEnabled="{Binding isNewGroup}" Content="เพิ่มคนมีบัตร" Style="{StaticResource ThaiButton}" HorizontalAlignment="Left" Margin="110,0,0,8" Name="addPeopleButton" VerticalAlignment="Bottom"   Click="addPeopleButton_Click" Width="90" />
+		<Button IsEnabled="{Binding isNewGroup}" Content="ลบคนที่เลือก" Style="{StaticResource ThaiButton}" HorizontalAlignment="Left" Margin="229,0,0,8" Name="discardButton" VerticalAlignment="Bottom" Click="discardButton_Click" Width="80" />
+
+		<Button Content="เสร็จสิ้น" Style="{StaticResource ThaiButton}" HorizontalAlignment="Right" Margin="0,0,12,8" Name="submitButton" VerticalAlignment="Bottom" Click="submitButton_Click" Width="76" />
+		
+		<Button Content="คัดลอกข้อมูลสู่คนอื่น" Style="{StaticResource ThaiButton}" HorizontalAlignment="Right" Margin="0,0,116,7" Name="copyButton" VerticalAlignment="Bottom" Width="104"  Click="copyButton_Click"/>
+		
+		
+		<Button Content="Button" Height="23"  Margin="339,0,0,7" Name="button1" VerticalAlignment="Bottom"   Click="button1_Click" HorizontalAlignment="Left" Width="75" IsEnabled="False"/><Button Content="Find next blacklist" Height="23" HorizontalAlignment="Right" Margin="0,41,0,0" Name="findNextBlacklistButton" VerticalAlignment="Top" Width="124"  Click="findNextBlacklistButton_Click"/>
+		
+		
+			
+    </Grid>
+	
+</navigation:Page>

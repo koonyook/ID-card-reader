@@ -1,0 +1,15 @@
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\bin\Debug\VBOCR.exe
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\bin\Debug\VBOCR.pdb
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\bin\Debug\VBOCR.xml
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\bin\Debug\tessnet2_32.dll
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\bin\Debug\tessnet2_32.pdb
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\WindowsApplication2.Form1.resources
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\WindowsApplication2.Resources.resources
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\VBOCR.vbproj.GenerateResource.Cache
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\VBOCR.exe
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\VBOCR.xml
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\VBOCR\VBOCR\obj\Debug\VBOCR.pdb
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\VBOCR\obj\Debug\VBOCR.exe
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\VBOCR\obj\Debug\VBOCR.xml
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\VBOCR\VBOCR\obj\Debug\VBOCR.pdb

@@ -1,0 +1,214 @@
+﻿<navigation:Page x:Class="RealApplication01.Views.DataPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           
+			mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:local="clr-namespace:Converter" 
+		   d:DesignWidth="1280" d:DesignHeight="800"
+           Title="DataPage Page" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:RealApplication01.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" Loaded="Page_Loaded">
+	<sdk:Page.Resources>
+		<CollectionViewSource x:Key="outsiderComingsViewSource" Source="{Binding Path=Data.Comings, ElementName=outsiderDomainDataSource1}" />
+		<CollectionViewSource x:Key="outsiderIdentifiersViewSource" Source="{Binding Path=Data.Identifiers, ElementName=outsiderDomainDataSource1}" />
+		<CollectionViewSource x:Key="outsiderBlackEventsViewSource" Source="{Binding Path=Data.BlackEvents, ElementName=outsiderDomainDataSource1}" />
+		
+	</sdk:Page.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="424" />
+			<ColumnDefinition Width="856*" />
+		</Grid.ColumnDefinitions>
+		<Grid.Resources>
+			<local:IdentifiersToFirstIdentifierIDConverter x:Key="identifiersToFirstIdentifierIDConverter" />
+			<local:BlackEventsToCountConverter x:Key="blackEventsToCountConverter" />
+			<local:ComingsToCountConverter x:Key="comingsToCountConverter" />
+		
+			<local:CompanyIDToNameConverter x:Key="companyIDToNameConverter" />
+			<local:EmpIDToStringConverter x:Key="empIDToStringConverter" />
+			<local:SectionIDToNameConverter x:Key="sectionIDToNameConverter" />
+			
+			<local:OutsiderToComingsConverter x:Key="outsiderToComingsConverter" />
+			<local:OutsiderToIdentifiersConverter x:Key="outsiderToIdentifiersConverter" />
+
+			<local:IdentifierTypeIDToNameConverter x:Key="identifierTypeIDToNameConverter" />
+			<local:IdentifiersImagesToLastIdentifierImageConverter x:Key="identifiersImagesToLastIdentifierImageConverter" />
+			<local:FileNameToImageSourceConverter x:Key="fileNameToImageSourceConverter" />
+
+			<local:IdentifierToIdentifierTypeIDConverter x:Key="identifierToIdentifierTypeIDConverter" />
+			<local:IdentifierToIdentifierIDConverter x:Key="identifierToIdentifierIDConverter" />
+
+			<local:OutsiderToBlackEventsConverter x:Key="outsiderToBlackEventsConverter" />
+
+		</Grid.Resources>
+		<riaControls:DomainDataSource AutoLoad="False" d:DesignData="{d:DesignInstance my:Outsider, CreateList=true}" Height="0" LoadedData="outsiderDomainDataSource_LoadedData" Name="outsiderDomainDataSource" QueryName="GetOutsiders_BlackEvents_Identifiers_Comings_FullFilterQuery" Width="0" Margin="0,0,424,800">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+			<riaControls:DomainDataSource.QueryParameters>
+				<riaControls:Parameter ParameterName="blackListOnly" Value="{Binding ElementName=blackListOnlyCheckBox, Path=isChecked}" />
+				<riaControls:Parameter ParameterName="todayOnly" Value="{Binding ElementName=todayOnlyCheckBox, Path=isChecked}" />
+				<riaControls:Parameter ParameterName="searcher" Value="{Binding ElementName=searcherTextBox, Path=Text}" />
+
+			</riaControls:DomainDataSource.QueryParameters>
+		</riaControls:DomainDataSource>
+		<StackPanel Height="30" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Margin="2,0,0,0">
+			<sdk:Label Content="Searcher:" Margin="3" VerticalAlignment="Center" />
+			<TextBox Name="searcherTextBox" Width="127" IsEnabled="{Binding ElementName=outsiderDomainDataSourceLoadButton, Path=IsEnabled}" KeyDown="searcherTextBox_KeyDown" />
+			<CheckBox Name="blackListOnlyCheckBox" Content="Blacklist Filter" IsEnabled="{Binding ElementName=outsiderDomainDataSourceLoadButton, Path=IsEnabled}" VerticalAlignment="Center" Unchecked="blackListOnlyCheckBox_CheckedChange" Checked="blackListOnlyCheckBox_CheckedChange" />
+			<CheckBox Name="todayOnlyCheckBox" Content="Today Filter" IsEnabled="{Binding ElementName=outsiderDomainDataSourceLoadButton, Path=IsEnabled}" VerticalAlignment="Center" Unchecked="todayOnlyCheckBox_CheckedChange" Checked="todayOnlyCheckBox_CheckedChange" />
+			<!-- <TextBox Name="blackListOnlyTextBox" Width="60" /> -->
+			<Button Command="{Binding Path=LoadCommand, ElementName=outsiderDomainDataSource}" Content="Load" Margin="3" Name="outsiderDomainDataSourceLoadButton" />
+		</StackPanel>
+		<sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ElementName=outsiderDomainDataSource, Path=Data}" Margin="3,39,10,42" Name="outsiderDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="outsiderDataGrid_SelectionChanged" IsReadOnly="True" SelectionMode="Single">
+			<sdk:DataGrid.Columns>
+				<sdk:DataGridTextColumn x:Name="citizenIDColumn" Binding="{Binding Path=Identifiers, Converter={StaticResource identifiersToFirstIdentifierIDConverter}}" Header="CitizenID" Width="SizeToHeader" MinWidth="120" />
+				<sdk:DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToHeader" MinWidth="70" />
+				<sdk:DataGridTextColumn x:Name="sNameColumn" Binding="{Binding Path=SName}" Header="Surname" Width="SizeToHeader" MinWidth="70" />
+				<sdk:DataGridTextColumn x:Name="blackCountColumn" Binding="{Binding Path=BlackEvents, Converter={StaticResource blackEventsToCountConverter}}" Header="Black" />
+				<sdk:DataGridTextColumn x:Name="commingCountColumn" Binding="{Binding Path=Comings, Converter={StaticResource comingsToCountConverter}}" Header="Come" Width="Auto" />
+			</sdk:DataGrid.Columns>
+		</sdk:DataGrid>
+		<Button Content="Button" Margin="0,0,212,6" Name="button1" Click="button1_Click_1" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsEnabled="False" />
+		<!--
+		<riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:Outsider, CreateList=true}" Height="0" LoadedData="outsiderDomainDataSource1_LoadedData_1" Name="outsiderDomainDataSource1" QueryName="GetOutsiders_BlackEvents_Identifiers_ComingsQuery" Width="0">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+		</riaControls:DomainDataSource>
+		-->
+		<riaControls:DomainDataSource AutoLoad="False" d:DesignData="{d:DesignInstance my:IdentifierImage, CreateList=true}" Height="0" LoadedData="identifierImageDomainDataSource_LoadedData" Name="identifierImageDomainDataSource" QueryName="GetIdentifierImagesFromIdentifierQuery" Width="0" Margin="0,0,424,800">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+			<riaControls:DomainDataSource.QueryParameters>
+				<riaControls:Parameter ParameterName="identifierID" Value="{Binding ElementName=identifiersDataGrid, Path=SelectedItem, Converter={StaticResource identifierToIdentifierIDConverter}}" />
+				<riaControls:Parameter ParameterName="identifierTypeID" Value="{Binding ElementName=identifiersDataGrid, Path=SelectedItem, Converter={StaticResource identifierToIdentifierTypeIDConverter}}" />
+			</riaControls:DomainDataSource.QueryParameters>
+		</riaControls:DomainDataSource>
+		<TextBox HorizontalAlignment="Right" Name="textBox1" Width="194" Height="23" VerticalAlignment="Bottom" Margin="0,0,12,6" IsEnabled="False" />
+		<!--
+		<riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:Outsider, CreateList=true}" Height="0" LoadedData="outsiderDomainDataSource1_LoadedData_2" Name="outsiderDomainDataSource1" QueryName="GetOutsiders_BlackEvents_Identifiers_ComingsQuery" Width="0">
+			<riaControls:DomainDataSource.DomainContext>
+				<my:DomainService1 />
+			</riaControls:DomainDataSource.DomainContext>
+		</riaControls:DomainDataSource>
+		-->
+		<Button Content="New Black Event" Height="23" HorizontalAlignment="Left" Margin="5,0,0,6" Name="addBlackEventButton" VerticalAlignment="Bottom" Width="116" Click="addBlackEventButton_Click" />
+		<sdk:TabControl Grid.Column="1" Margin="2,2,8,0" Name="tabControl1">
+			<sdk:TabItem Header="Profile" Name="tabItem1">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50*" />
+						<RowDefinition Height="50*" />
+					</Grid.RowDefinitions>
+					<Grid DataContext="{Binding ElementName=identifierImageDomainDataSource, Path=Data}"  Name="grid3" >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="296" />
+							<ColumnDefinition Width="532*" />
+						</Grid.ColumnDefinitions>
+						<sdk:DataGrid AutoGenerateColumns="False" Height="152" ItemsSource="{Binding ElementName=outsiderDataGrid, Path=SelectedItem, Converter={StaticResource outsiderToIdentifiersConverter}}" Margin="6,6,8,0" Name="identifiersDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" SelectionChanged="identifiersDataGrid_SelectionChanged" IsReadOnly="True" SelectionMode="Single">
+							<sdk:DataGrid.Columns>
+								<sdk:DataGridTextColumn x:Name="identifierIDColumn" Binding="{Binding Path=IdentifierID}" Header="Identifier ID" Width="SizeToHeader" MinWidth="120" />
+								<sdk:DataGridTextColumn x:Name="identifierTypeIDColumn" Binding="{Binding Path=IdentifierTypeID, Converter={StaticResource identifierTypeIDToNameConverter}}" Header="Type" Width="SizeToHeader" MinWidth="75" />
+								<sdk:DataGridCheckBoxColumn x:Name="haveCopyColumn" Binding="{Binding Path=HaveCopy}" Header="Copy" Width="SizeToHeader" />
+							</sdk:DataGrid.Columns>
+						</sdk:DataGrid>
+						<Button Command="{Binding Path=LoadCommand, ElementName=identifierImageDomainDataSource}" Content="Load" Margin="245,164,0,0" Width="43" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" IsEnabled="False" />
+						<sdk:Label Content="Snap Date Time:" HorizontalAlignment="Left" Margin="6,164,0,0" VerticalAlignment="Top" Height="20" />
+						<TextBlock Height="23" HorizontalAlignment="Left" Margin="103,164,0,0" Name="snapDateTimeTextBlock" Text="{Binding Path=SnapDateTime, Mode=OneWay}" VerticalAlignment="Top" />
+						<Image Name="fileNameImage" Source="{Binding Path=FileName, Converter={StaticResource fileNameToImageSourceConverter}}" Stretch="Uniform" Grid.Column="1" Margin="6,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" UseLayoutRounding="False" />
+					</Grid>
+					<Grid Grid.Row="1"  Name="grid4">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="341" />
+							<ColumnDefinition Width="241*" />
+						</Grid.ColumnDefinitions>
+						<sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ElementName=outsiderDataGrid, Path=SelectedItem, Converter={StaticResource outsiderToBlackEventsConverter}}"  Name="blackEventsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" MaxWidth="360">
+							<sdk:DataGrid.Columns>
+								<sdk:DataGridTemplateColumn x:Name="dateColumn" Header="Date" Width="SizeToHeader" MinWidth="70">
+									<sdk:DataGridTemplateColumn.CellEditingTemplate>
+										<DataTemplate>
+											<sdk:DatePicker SelectedDate="{Binding Path=Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+										</DataTemplate>
+									</sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<sdk:DataGridTemplateColumn.CellTemplate>
+										<DataTemplate>
+											<TextBlock Text="{Binding Path=Date, StringFormat=\{0:d\}}" />
+										</DataTemplate>
+									</sdk:DataGridTemplateColumn.CellTemplate>
+								</sdk:DataGridTemplateColumn>
+								<sdk:DataGridTextColumn x:Name="typeColumn" Binding="{Binding Path=Type}" Header="Type" Width="SizeToHeader" MinWidth="80" />
+								<sdk:DataGridTextColumn x:Name="detailColumn1" Binding="{Binding Path=Detail}" Header="Detail" Width="SizeToCells" MinWidth="100" />
+							</sdk:DataGrid.Columns>
+						</sdk:DataGrid>
+						<Grid DataContext="{Binding ElementName=blackEventsDataGrid, Path=SelectedItem}" Margin="0,8,21,0" Name="grid2" Width="304" HorizontalAlignment="Right" Height="220" VerticalAlignment="Top" Grid.Column="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="42" />
+								<ColumnDefinition Width="310*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="26" />
+								<RowDefinition Height="35" />
+								<RowDefinition Height="108" />
+								<RowDefinition Height="51" />
+							</Grid.RowDefinitions>
+							<sdk:Label Content="Date:" HorizontalAlignment="Left" Margin="3,3,0,7" VerticalAlignment="Center" />
+							<sdk:DatePicker Grid.Column="1" Height="23" Margin="3,3,0,0" Name="dateDatePicker" SelectedDate="{Binding Path=Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" HorizontalContentAlignment="Left" HorizontalAlignment="Left" />
+							<sdk:Label Content="Detail:" Grid.Row="2" HorizontalAlignment="Left" Margin="2,25,0,38" VerticalAlignment="Center" Height="17" />
+							<TextBox Grid.Column="1" Grid.Row="2" Margin="3,4,6,8" Name="detailTextBox" Text="{Binding Path=Detail, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" TextWrapping="Wrap" />
+							<sdk:Label Content="Type:" Grid.Row="1" HorizontalAlignment="Left" Margin="3,9,0,9" VerticalAlignment="Center" Height="17" Width="39" />
+							<TextBox Grid.Column="1" Grid.Row="1" Height="23" Margin="3,7,6,5" Name="typeTextBox" Text="{Binding Path=Type, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" VerticalAlignment="Center" />
+							<Button Content="Submit" Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Right" Margin="0,0,6,6" Name="editBlackEventButton" VerticalAlignment="Bottom" Width="75" Click="editBlackEventButton_Click" />
+							<Button Content="Cancel Changes" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="12,0,0,6" Name="rejectButton" VerticalAlignment="Bottom" Width="98" Click="rejectButton_Click" Grid.Column="1" />
+						</Grid>
+						<Button Content="Delete selected black event" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="16,0,0,6" Name="deleteBlackEventButton" VerticalAlignment="Bottom" Width="165" Click="deleteBlackEventButton_Click" />
+					</Grid>
+				</Grid>
+			</sdk:TabItem>
+			<sdk:TabItem Header="History">
+				<Grid>
+				<sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ElementName=outsiderDataGrid, Path=SelectedItem, Converter={StaticResource outsiderToComingsConverter}}" Name="comingsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" SelectionMode="Single" Margin="6,6,7,5">
+					<sdk:DataGrid.Columns>
+							<sdk:DataGridTemplateColumn x:Name="timeInColumn" Header="TimeIn" Width="Auto">
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<sdk:DatePicker SelectedDate="{Binding Path=TimeIn, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Path=TimeIn, StringFormat=\{0:g\}}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTemplateColumn x:Name="timeOutColumn" Header="TimeOut" Width="Auto">
+								<sdk:DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate>
+										<sdk:DatePicker SelectedDate="{Binding Path=TimeOut, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, TargetNullValue=''}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellEditingTemplate>
+								<sdk:DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock Text="{Binding Path=TimeOut, StringFormat=\{0:g\}}" />
+									</DataTemplate>
+								</sdk:DataGridTemplateColumn.CellTemplate>
+							</sdk:DataGridTemplateColumn>
+							<sdk:DataGridTextColumn x:Name="companyIDColumn" Binding="{Binding Path=CompanyID, Converter={StaticResource companyIDToNameConverter}}" Header="Company" Width="SizeToHeader" />
+							<sdk:DataGridTextColumn x:Name="contactSectionIDColumn" Binding="{Binding Path=ContactSectionID, Converter={StaticResource sectionIDToNameConverter}}" Header="Section" Width="SizeToCells" MinWidth="50" />
+							<sdk:DataGridTextColumn x:Name="contactEMPIDColumn" Binding="{Binding Path=ContactEMPID, Converter={StaticResource empIDToStringConverter}}" Header="ContactPerson" Width="SizeToHeader" />
+							<sdk:DataGridTextColumn x:Name="contactElseColumn" Binding="{Binding Path=ContactElse}" Header="Detail" Width="SizeToHeader" />
+							<sdk:DataGridCheckBoxColumn x:Name="isDeliverColumn" Binding="{Binding Path=IsDeliver}" Header="Deliver" Width="SizeToCells" MinWidth="50" />
+							<sdk:DataGridTextColumn x:Name="plateNoColumn" Binding="{Binding Path=PlateNo}" Header="Plate No" Width="SizeToCells" MinWidth="50" />
+							<sdk:DataGridTextColumn x:Name="temporaryCardIDColumn" Binding="{Binding Path=TemporaryCardID}" Header="TempCardID" Width="SizeToCells" MinWidth="50" />
+							<sdk:DataGridTextColumn x:Name="inspectorColumn" Binding="{Binding Path=Inspector}" Header="Inspector" Width="SizeToHeader" />
+							<sdk:DataGridTextColumn x:Name="computerNameColumn" Binding="{Binding Path=ComputerName}" Header="Computer" Width="SizeToHeader" />
+						</sdk:DataGrid.Columns>
+				</sdk:DataGrid>
+				</Grid>
+			</sdk:TabItem>
+		</sdk:TabControl>
+	</Grid>
+</navigation:Page>

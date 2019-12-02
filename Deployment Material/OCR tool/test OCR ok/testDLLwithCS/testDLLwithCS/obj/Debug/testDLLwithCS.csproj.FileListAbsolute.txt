@@ -1,0 +1,19 @@
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.exe
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.pdb
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\bin\Debug\tessnet2_32.dll
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\bin\Debug\tessnet2_32.pdb
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.exe
+C:\Documents and Settings\trainees39\My Documents\Visual Studio 2008\Projects\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.pdb
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.exe
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.pdb
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\bin\Debug\tessnet2_32.pdb
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.exe
+C:\Users\Multiply\Desktop\project\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.pdb
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.exe
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\bin\Debug\testDLLwithCS.pdb
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\bin\Debug\tessnet2_32.pdb
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.exe
+C:\Users\Multiply\Desktop\important tool\OCR tool\test OCR ok\testDLLwithCS\testDLLwithCS\obj\Debug\testDLLwithCS.pdb
